@@ -1,13 +1,11 @@
 package com.luxoft;
 
 import com.com.luxoft.vehicle.Aircraft;
-import com.luxoft.zoo.Cat;
-import com.luxoft.zoo.Duck;
-import com.luxoft.zoo.Cell;
-import com.luxoft.zoo.Flyer;
+import com.luxoft.zoo.*;
 
 /**
  * Created by grey5 on 3/21/2017.
+ * Ctrl+Alt+l
  */
 public class Main {
     public static void main(String[] args) {
@@ -44,7 +42,10 @@ public class Main {
         }
 
         Cell cell = new Cell();
-        //cell.placeAnimal(donald);
+        Cell cell2 = new Cell();
+        cell.placeAnimal(donald);
+        cell.placeAnimal(scrudge);
+
         String acn = cell.getAnimalName();
         System.out.println(acn);
         //cell.empty();
@@ -54,6 +55,11 @@ public class Main {
         basya.pur();
         basya.eat();
         basya.produceSound();
+
+        ZooGarden zoo = new ZooGarden();
+        zoo.addCell(cell);
+        zoo.addCell(cell2);
+        zoo.printANames();
 
     }
 }
