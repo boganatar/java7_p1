@@ -8,7 +8,22 @@ import com.luxoft.zoo.Flyer;
 public class Aircraft implements Flyer {
     @Override
     public void fly() {
-        System.out.println("I am flying as a plane");
+        //System.out.println("I am flying as a plane"+10+" meeters");
+        fly(10, 10);
+
+    }
+
+    @Override
+    public void fly(int dest) {
+        //System.out.println("I am  flying as a plane "+dest+" meters");
+        fly(100, 10);
+
+    }
+
+    @Override
+    public void fly(int dest, int attit) {
+        System.out.println("I am  flying as a plane "+dest+" meters at attitude "+ attit+"meters");
+
 
     }
 

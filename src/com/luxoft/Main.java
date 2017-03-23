@@ -9,12 +9,12 @@ import com.luxoft.zoo.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Duck donald = new Duck();
-        donald.setName("Donald");
-        donald.setAge(5);
+        Duck donald = new Duck("Donald");
+        //donald.setName("Donald");
+        //donald.setAge(5);
 
-        Duck scrudge = new Duck();
-        scrudge.setName("Scrudge");
+        Duck scrudge = new Duck("Scrudge");
+        //scrudge.setName("Scrudge");
 
         donald.eat();
         donald.produceSound();
@@ -30,7 +30,7 @@ public class Main {
 
         Aircraft boeing = new Aircraft();
         boeing.takeOff();
-        boeing.fly();
+        boeing.fly(3);
         boeing.land();
 
         Flyer[] flyers = {scrudge, donald, boeing};
@@ -44,14 +44,14 @@ public class Main {
         Cell cell = new Cell();
         Cell cell2 = new Cell();
         cell.placeAnimal(donald);
-        cell.placeAnimal(scrudge);
+        cell2.placeAnimal(scrudge);
 
         String acn = cell.getAnimalName();
         System.out.println(acn);
         //cell.empty();
 
-        Cat basya = new Cat();
-        basya.setName("Basya");
+        Cat basya = new Cat("Basya", "Grey");
+        //basya.setName("Basya");
         basya.pur();
         basya.eat();
         basya.produceSound();

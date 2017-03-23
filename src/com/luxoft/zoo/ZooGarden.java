@@ -6,15 +6,24 @@ package com.luxoft.zoo;
 public class ZooGarden {
     private Cell [] cells = new Cell[10];
     private int cCount = 0;
+
     public void printANames (){
         if (cCount != 0){
             System.out.println("In zoo " + cCount + " cells");
+
             for (Cell c:cells) {
-                String acn = c.getAnimalName();
-                if (acn != null){System.out.println(acn);}else {
-                    System.out.println("This cell is emty");
+                if (c != null){
+                    String acn = c.getAnimalName();
+                    System.out.println(acn);
                 }
             }
+
+            /*for (Cell c:cells) {
+                String acn = c.getAnimalName();
+                if (c.getAnimalName() != null){System.out.println(c.getAnimalName());}else {
+                    System.out.println("This cell is emty");
+                }
+            }*/
         }
         else{
             System.out.println("Zoo is empty!");
