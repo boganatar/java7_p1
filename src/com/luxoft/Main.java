@@ -60,6 +60,15 @@ public class Main {
         zoo.addCell(cell);
         zoo.addCell(cell2);
         zoo.printANames();
+        String s1 = "abc";
+        String s3 = "abc";
+        if(s1.intern()== s3.intern()){
+            System.out.println("True");
+        }
+
+        if(s1.equals(s3)){
+            System.out.println("True");
+        }
 
     }
 }

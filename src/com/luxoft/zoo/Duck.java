@@ -11,6 +11,7 @@ public class Duck extends Zoon implements Flyer {
 
     public Duck(String name, int age){
         super(name, age);
+        //this.name = name;
     }
     @Override
     public void produceSound() {
