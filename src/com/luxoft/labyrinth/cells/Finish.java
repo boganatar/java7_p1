@@ -3,12 +3,12 @@ package com.luxoft.labyrinth.cells;
 import com.luxoft.labyrinth.Minotaur;
 
 /**
- * Created by grey5 on 3/27/2017.
+ * Created by grey5 on 3/29/2017.
  */
-public class Space extends Cell {
-    public Space(){
+public class Finish extends Cell {
+    public Finish(){
         if(this.getVsible() ) {
-            this.sign = '.';
+            this.sign = '*';
         }else{
             this.sign = ' ';
         }
@@ -16,6 +16,8 @@ public class Space extends Cell {
 
     public boolean enter(Minotaur m){
         m.setEnergy(m.getEnergy() - 1);
-        //this.setVsible(true);
-        return true;}
+        System.out.println("You found the exit.");
+        System.exit(0);
+        return true;
+    }
 }

@@ -7,6 +7,15 @@ import com.luxoft.labyrinth.Minotaur;
  */
 public abstract class Cell {
     protected char sign;
+    boolean isVsible = false;
+
+    public boolean getVsible() {
+        return isVsible;
+    }
+
+    public void setVsible(boolean vsible) {
+        isVsible = vsible;
+    }
 
     public char getSign() {
         return sign;

@@ -6,10 +6,21 @@ package com.luxoft.labyrinth;
 public class Minotaur {
     int x;
     int y;
+    int energy = 20;
+
     private char sign = 'X';
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
 
     public char getSign() {
         return sign;
+
     }
 
     public int getX() {
