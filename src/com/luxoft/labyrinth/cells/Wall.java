@@ -7,11 +7,7 @@ import com.luxoft.labyrinth.Minotaur;
  */
 public class Wall extends Cell {
     public Wall(){
-        if(this.getVsible() ) {
-            this.sign = '#';
-        }else{
-            this.sign = ' ';
-        }
+        this.sign = '#';
     }
     public boolean enter(Minotaur m){
         m.setEnergy(m.getEnergy() - 5);

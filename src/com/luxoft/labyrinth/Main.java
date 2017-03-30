@@ -15,25 +15,29 @@ public class Main {
             switch (command){
                 case "right":
                 case "r":
-                    gf.moveMinotaurRight();
+                    //gf.moveMinotaurRight();
+                    gf.moveMinotaur(Direction.R);
                     gf.printField();
                     break;
 
                 case "left":
                 case "l":
-                    gf.moveMinotaurLeft();
+                    //gf.moveMinotaurLeft();
+                    gf.moveMinotaur(Direction.L);
                     gf.printField();
                     break;
 
                 case "up":
                 case "u":
-                    gf.moveMinotaurUp();
+                    //gf.moveMinotaurUp();
+                    gf.moveMinotaur(Direction.U);
                     gf.printField();
                     break;
 
                 case "down":
                 case "d":
-                    gf.moveMinotaurDown();
+                    //gf.moveMinotaurDown();
+                    gf.moveMinotaur(Direction.D);
                     gf.printField();
                     break;
                 default:

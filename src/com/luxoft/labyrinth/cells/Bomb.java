@@ -8,11 +8,7 @@ import com.luxoft.labyrinth.Minotaur;
 public class Bomb extends Cell {
     boolean visited = false;
     public Bomb(){
-        if(this.getVsible() ) {
-            this.sign = 'b';
-        }else{
-            this.sign = ' ';
-        }
+        this.sign = 'b';
     }
 
     public boolean enter(Minotaur m){

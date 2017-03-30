@@ -7,11 +7,7 @@ import com.luxoft.labyrinth.Minotaur;
  */
 public class Finish extends Cell {
     public Finish(){
-        if(this.getVsible() ) {
-            this.sign = '*';
-        }else{
-            this.sign = ' ';
-        }
+        this.sign = '*';
     }
 
     public boolean enter(Minotaur m){

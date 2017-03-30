@@ -7,15 +7,10 @@ import com.luxoft.labyrinth.Minotaur;
  */
 public class Space extends Cell {
     public Space(){
-        if(this.getVsible() ) {
-            this.sign = '.';
-        }else{
-            this.sign = ' ';
-        }
+        this.sign = '.';
     }
 
     public boolean enter(Minotaur m){
         m.setEnergy(m.getEnergy() - 1);
-        //this.setVsible(true);
         return true;}
 }

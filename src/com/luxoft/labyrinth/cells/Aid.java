@@ -8,11 +8,7 @@ import com.luxoft.labyrinth.Minotaur;
 public class Aid extends Cell {
     boolean visited = false;
     public Aid(){
-        if(this.getVsible() ) {
-            this.sign = '+';
-        }else{
-            this.sign = ' ';
-        }
+        this.sign = '+';
     }
 
     public boolean enter(Minotaur m){
