@@ -44,34 +44,35 @@ public class GameField {
 
     public void moveMinotaur(Direction d){
         //define minot position
-        int minotY = minotaur.getY();
-        int minotX = minotaur.getX();
+        int minotY = minotaur.getY()+ d.getDy();
+        int minotX = minotaur.getX()+ d.getDx();
 
-        switch (d){
+        /*switch (d){
             case D:
-                minotY = minotY + 1;
+                minotY ++;
                 break;
             case U:
-                minotY = minotY + 1;
+                minotY --;
                 break;
             case L:
-                minotX = minotX - 1;
+                minotX --;
                 break;
             case R:
-                minotX = minotX +1;
+                minotX ++;
                 break;
             default:
                 System.out.println("Unknown command");
 
-        }
+        }*/
 
-        if(minotX <0 || minotX >= cells[0].length || minotY <0 || minotY >= cells.length){
+        if(minotX < 0 || minotX >= cells[0].length || minotY <0 || minotY >= cells.length){
             return;
         }
 
-        boolean ableToMove = cells[minotX][minotY].enter(minotaur);
+        boolean ableToMove = cells[minotY][minotX].enter(minotaur);
 
         if(ableToMove){
+            //System.out.println("New point is x"+ minotX+"y is "+minotY);
             minotaur.setX(minotX);
             minotaur.setY(minotY);
         }
