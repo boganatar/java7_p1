@@ -1,0 +1,72 @@
+interface Person {
+    +String getSurname()
+    +String getFirstName()
+    +String getCnp()
+    +int getAge()
+}
+
+class Patient implements Person {
+    -String surname
+    -String firstName
+    -String cnp
+    -int age
+	
+    +Patient(String surname, String firstName, String cnp, int age)
+    +String getSurname()
+    +String getFirstName()
+    +String getCnp()
+    +int getAge()
+    +String toString()
+}
+
+enum Specialization {
+    Cardiology,
+    Pediatry
+}
+
+class Doctor implements Person {
+    -String surname
+    -String firstName
+    -String cnp
+    -int age
+    -Specialization specialization
+    -Clinic clinic
+
+    +Doctor(String surname, String firstName, String cnp, int age, Specialization specialization, Clinic clinic)
+    +void participateToAppoinments()
+    +String getSurname()
+    +String getFirstName()
+    +String getCnp()
+    +int getAge()
+    +Specialization getSpecialization()
+    +String toString()
+}
+
+class Appointment {
+   -Patient patient
+   -Doctor doctor
+   -Date date
+	
+   +Appointment(Patient patient, Doctor doctor, Date date)
+   +Patient getPatient() 
+   +Doctor getDoctor() 
+   +Date getDate()
+   +String toString()
+}
+
+interface Clinic {
+   +List<Appointment> getAppointmentList()
+}
+
+class MedLife implements Clinic {
+   -List<Appointment> appointments
+   +List<Appointment> getAppointmentList()
+   +boolean registerAppointment(Patient patient, Doctor doctor, Date date) 
+   +static void main(String[] args)
+}
+
+
+Appointment *-- Clinic: have
+Appointment -- Doctor: have
+Appointment -- Patient: have
+Doctor -- Specialization: have

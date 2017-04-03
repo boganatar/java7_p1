@@ -1,0 +1,65 @@
+interface Person {
+   +String getSurname()
+   +String getFirstName()
+   +int getAge()
+}
+
+class Student implements Person {
+	-String surname
+	-String firstName
+	-int age
+	
+	+Student(String surname, String firstName, int age)
+	+String getSurname() 
+	+String getFirstName()
+	+int getAge()
+	+void prepareForCourse()
+    +String toString()
+}
+
+enum Speciality {
+    Mathematics,
+    Automatic_Control,
+    Computer_Science
+}
+
+class Professor implements Person {
+    -String surname
+    -String firstName
+    -int age
+    -Speciality speciality
+    	
+    +Professor(String surname, String firstName, int age, Speciality speciality)
+    +String getSurname() 
+    +String getFirstName()
+    +int getAge()
+    +Speciality getSpeciality()
+    +String toString()
+}
+
+class Department {
+    -String departmentName
+    -List<Professor> professors
+    
+    +Department(String name)
+    +String getDepartmentName()
+    +List<Professor> getProfessorsList() 
+    +boolean addProfessor(Professor professor) 
+    +String toString() 
+}
+
+class University {
+	-String name
+	-List<Department> departments
+	
+	+University(String name)
+	+String getName()
+	+List<Department> getDepartmentsList() 
+	+boolean addDepartment(Department department)
+	+String toString()
+	+static void main(String [] args)
+}
+
+Department *-- University: have
+Professor *- Department: works
+Professor -- Speciality: have

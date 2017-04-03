@@ -1,0 +1,72 @@
+interface Person {
+        +String getFirstName()
+	+String getSurname()
+	+String getPhoneNumber()
+	+int getDiscount(int noFlights)
+}
+
+class Client implements Person {
+	-String surname
+	-String firstName
+	-String phoneNumber
+	
+	+Client(String surname, String firstName, String phoneNumber)
+	+String getSurname()
+	+String getFirstName()
+	+String getPhoneNumber()
+	+int getDiscount(int noFlights)
+	+String toString()
+}
+
+class Employee implements Person {
+	-String surname
+	-String firstName
+	-String phoneNumber
+	
+	+Client(String surname, String firstName, String phoneNumber)
+	+String getSurname()
+	+String getFirstName()
+	+String getPhoneNumber()
+	+int getDiscount(int noFlights)
+	+String toString()
+}
+
+class SpecialClient extends Client {
+        -int discount;
+	
+	+SpecialClient(String surname, String firstName, String phoneNumber, int discount) 
+	+int getDiscount()
+	+String toString()
+}
+
+class Flight {
+	-String id
+	-int runaway
+	-Date departureTime
+	-Date arrivalTime
+	-List<Client> passengersList
+	
+	+Flight(String id, int runaway, Date departureTime, Date arrivalTime)
+	+String getId()
+	+int getRunaway()
+	+Date getDepartureTime()
+	+Date getArrivalTime()
+	+List<Client> getPassengersList()
+	+boolean addPassenger(Client client)
+	+String toString()
+}
+
+class Airport {
+    -String name
+    -List<Flight> flights
+	
+    +Airport(String name)
+    +String getName()
+    +List<Flight> getFlightsList()
+    +boolean addFlight(Flight flight)
+    +String toString() 
+    +static void main(String [] args)
+}
+
+Flight *-- Airport: have
+Client *-- Flight: have

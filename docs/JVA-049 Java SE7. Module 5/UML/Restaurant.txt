@@ -1,0 +1,58 @@
+interface Person {
+	+String getSurname()
+	+String getFirstName()
+}
+
+class AbstractPerson implements Person {
+	-String surname
+	-String firstName
+	
+	+AbstractPerson(String surname, String firstName)
+	+String getSurname()
+	+String getFirstName()
+}
+
+class Client extends AbstractPerson {
+	
+	-int reservationNumber
+	-double ammountToPay
+
+	+Client(String surname, String firstName, int reservationNumber)
+	+int getReservationNumber()
+	+double getAmmountToPay()
+	+void setAmmountToPay(double ammountToPay)
+	+void payBill()
+	+void order()
+	+String toString()
+}
+
+class Employee extends AbstractPerson {
+	+Employee(String surname, String firstName)
+	+void serve(Client client)
+	+void bringCheck(Client client)
+	+double collectBill(Client client)
+	+int confirmReservation(Client client)
+	+String toString()
+}
+
+class Restaurant {
+	-String name
+	-int numberOfTables
+	-List<Client> clients
+	-List<Employee> employees
+	
+	+Restaurant (String name, int numberOfTables)
+	+String getName()
+	+int getNumberOfTables()
+	+List<Client> getClientsList()
+	+boolean addClient(Client client)
+	+List<Employee> getEmployeesList() 
+	+boolean addEmployee(Employee employee)
+	+String toString()
+	+static void main(String[] args)
+}
+
+Client *-- Restaurant: have
+Employee *-- Restaurant: have
+Employee --* Client: serve
+Client *-- Employee: pay bill

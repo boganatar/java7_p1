@@ -1,0 +1,63 @@
+interface Person {
+        +String getSurname()
+	+String getFirstName()
+}
+
+class Customer implements Person {
+	-String surname
+	-String firstName
+	-String phoneNumber
+	-String deliveryAddress
+
+	+Customer(String surname, String firstName, String phoneNumber, String deliveryAddress)
+	+String getSurname()
+	+String getFirstName()
+	+String getPhoneNumber()
+	+String getDeliveryAddress()
+	+void order()
+	+void payBill()
+	+String toString()
+}
+
+class Employee implements Person {
+	-String surname
+	-String firstName
+	
+	+Employee(String surname, String firstName)
+	+String getSurname()
+	+String getFirstName()
+	+void serve(Customer customer)
+	+String toString()
+}
+
+class Department {
+    -String departmentName
+    -List<Employee> employees
+    
+    +Department(String name) 
+    +List<Employee> getEmployeesList()
+    +boolean addEmployee(Employee employee)
+    +String toString()
+}
+
+class Shop {
+	-String name
+	-String shopAddress
+	-List<Department> departments
+	-List<Customer> customers
+	
+	+Shop (String name, String shopAddress)
+	+String getName() 
+	+String getShopAddress()
+	+List<Department> getDepartmentsList()
+	+boolean addDepartment(Department department)
+        +List<Customer> getCustomersList()
+	+boolean addCustomer(Customer customer)
+	+String toString()
+        +static void main(String[] args)
+}
+
+Customer *-- Shop: have
+Employee *-- Department: have
+Department *-- Shop: have
+Employee --* Customer: serve
