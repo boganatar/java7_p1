@@ -1,5 +1,6 @@
 package com.luxoft.labyrinth;
 
+import com.luxoft.MinotaurStateException;
 import com.luxoft.labyrinth.cells.*;
 import com.luxoft.labyrinth.cells.Wall;
 import com.luxoft.labyrinth.cells.Space;
@@ -42,7 +43,7 @@ public class GameField {
 
     };
 
-    public void moveMinotaur(Direction d){
+    public void moveMinotaur(Direction d) throws MinotaurStateException {
         //define minot position
         int minotY = minotaur.getY()+ d.getDy();
         int minotX = minotaur.getX()+ d.getDx();
@@ -71,15 +72,25 @@ public class GameField {
 
         boolean ableToMove = cells[minotY][minotX].enter(minotaur);
 
-        if(ableToMove){
-            //System.out.println("New point is x"+ minotX+"y is "+minotY);
-            minotaur.setX(minotX);
-            minotaur.setY(minotY);
+        if(!minotaur.sitting) {
+
+            if (ableToMove) {
+                //System.out.println("New point is x"+ minotX+"y is "+minotY);
+                minotaur.setX(minotX);
+                minotaur.setY(minotY);
+            }
+        }else {
+            //throw new IllegalStateException("Minotaur is sitting");
+            throw new MinotaurStateException(minotX, minotY, "Can't move while sitting");
         }
 
 
 
     }
+
+    public void sitMinotaur(){minotaur.sitDown();}
+
+    public void standMinotaur(){minotaur.standUp();}
 
     public void moveMinotaurRight(){
         int minotY = minotaur.getY();

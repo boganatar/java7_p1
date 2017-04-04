@@ -14,6 +14,7 @@ public class Bomb extends Cell {
     public boolean enter(Minotaur m){
         if(!visited){
             m.setEnergy(m.getEnergy() - 10);
+            m.sitDown();
             this.visited = true;
         }
         return true;}

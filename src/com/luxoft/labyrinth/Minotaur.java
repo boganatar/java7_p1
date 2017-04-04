@@ -8,20 +8,37 @@ public class Minotaur {
     int y;
     int energy = 20;
 
+    boolean sitting = false;
+
     private char sign = 'X';
 
     public int getEnergy() {
         return energy;
     }
 
+    public boolean isSitting(){return sitting;}
+
     public void setEnergy(int energy) {
         this.energy = energy;
     }
 
-    public char getSign() {
-        return sign;
-
+    public void sitDown() throws IllegalStateException {
+        if(!sitting){
+            this.sitting = true;
+            this.sign = 'x';
+        }else{throw  new IllegalStateException("Minotaur is sitting");}
     }
+
+    public void standUp() throws IllegalStateException {
+        if(sitting){
+            this.sitting = false;
+            this.sign = 'R';
+        }else{throw  new IllegalStateException("Minotaur is sitting");}
+    }
+
+    public char getSign() { return sign; }
+
+    //public void setSign(char c){this.sign = c;}
 
     public int getX() {
         return x;
