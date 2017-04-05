@@ -1,7 +1,9 @@
 package com.luxoft.labyrinth;
 
 import com.luxoft.MinotaurStateException;
+import com.luxoft.labyrinth.cells.Cell;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,6 +13,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GameField gf = new GameField();
+        ArrayList<ArrayList<Cell>> cells = new ArrayList<>();
+        //[i] ->.get(i);
         gf.printField();
         while (true) {
             String command = scanner.next();
