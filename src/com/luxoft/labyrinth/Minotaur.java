@@ -1,5 +1,7 @@
 package com.luxoft.labyrinth;
 
+import com.luxoft.MinotaurStateException;
+
 /**
  * Created by grey5 on 3/28/2017.
  */
@@ -22,18 +24,18 @@ public class Minotaur {
         this.energy = energy;
     }
 
-    public void sitDown() throws IllegalStateException {
+    public void sitDown() throws MinotaurStateException {
         if(!sitting){
             this.sitting = true;
             this.sign = 'x';
-        }else{throw  new IllegalStateException("Minotaur is sitting");}
+        }else{throw  new MinotaurStateException(this.getX(), this.getY(), "Minotaur is sitting");}
     }
 
-    public void standUp() throws IllegalStateException {
+    public void standUp() throws MinotaurStateException {
         if(sitting){
             this.sitting = false;
             this.sign = 'R';
-        }else{throw  new IllegalStateException("Minotaur is sitting");}
+        }else{throw  new MinotaurStateException(this.getX(), this.getY(), "Minotaur is sitting");}
     }
 
     public char getSign() { return sign; }

@@ -88,9 +88,20 @@ public class GameField {
 
     }
 
-    public void sitMinotaur(){minotaur.sitDown();}
+    public void sitMinotaur()throws MinotaurStateException{
+        try {
+            minotaur.sitDown();
+        }catch (MinotaurStateException e){System.out.println("Illegal command for current minotaur state.");
+        }
+        }
 
-    public void standMinotaur(){minotaur.standUp();}
+    public void standMinotaur() throws MinotaurStateException{
+        try {
+            minotaur.standUp();
+        }catch (MinotaurStateException e){System.out.println("Illegal command for current minotaur state.");
+        }
+    }
+    
 
     public void moveMinotaurRight(){
         int minotY = minotaur.getY();

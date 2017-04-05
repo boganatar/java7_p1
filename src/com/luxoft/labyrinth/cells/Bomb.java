@@ -1,5 +1,6 @@
 package com.luxoft.labyrinth.cells;
 
+import com.luxoft.MinotaurStateException;
 import com.luxoft.labyrinth.Minotaur;
 
 /**
@@ -14,7 +15,9 @@ public class Bomb extends Cell {
     public boolean enter(Minotaur m){
         if(!visited){
             m.setEnergy(m.getEnergy() - 10);
-            m.sitDown();
+            try {
+                m.sitDown();
+            }catch (MinotaurStateException e){System.out.println("Illegal command for current minotaur state.");}
             this.visited = true;
         }
         return true;}
